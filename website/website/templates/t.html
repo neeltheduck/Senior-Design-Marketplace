@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Senior Capstone Projects">
+    <meta name="keywords" content="capstone, senior projects, student projects">
+    <meta name="author" content="University Name">
+    <title>Senior Capstone Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Senior Capstone Projects</h1>
+            <nav>
+                <ul>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Left Section: Projects -->
+            <section id="projects" class="content-left">
+                <h2>Featured Capstone Projects</h2>
+                <div class="project-grid">
+                    <article class="project-item">
+                        <h3>Project Title 1</h3>
+                        <p>Short description of the project.</p>
+                        <a href="project1.html" class="button">Read More</a>
+                    </article>
+
+                    <article class="project-item">
+                        <h3>Project Title 2</h3>
+                        <p>Short description of the project.</p>
+                        <a href="project2.html" class="button">Read More</a>
+                    </article>
+
+                    <article class="project-item">
+                        <h3>Project Title 3</h3>
+                        <p>Short description of the project.</p>
+                        <a href="project3.html" class="button">Read More</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Right Section: List of Groups -->
+            <section id="group-feature" class="content-right">
+                <h2>Join a Capstone Group</h2>
+                <p>Select a group to join. Each group can have up to 6 members.</p>
+
+                <!-- Form to input user details -->
+                <form id="joinGroupForm">
+                    <label for="studentName">Your Name:</label>
+                    <input type="text" id="studentName" placeholder="Enter your name" required>
+
+                    <label for="studentEmail">Email:</label>
+                    <input type="email" id="studentEmail" placeholder="Enter your email" required>
+
+                    <label for="groupSelection">Choose a Group:</label>
+                    <select id="groupSelection" required>
+                        <!-- Groups will be dynamically added here -->
+                    </select>
+
+                    <button type="button" onclick="joinGroup()">Join Group</button>
+                </form>
+
+                <h3>Available Groups</h3>
+                <ul id="groupList">
+                    <!-- Groups and members will be dynamically added here -->
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Senior Capstone Projects | University Name</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
