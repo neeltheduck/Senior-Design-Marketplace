@@ -1,0 +1,44 @@
+<head>
+    <meta charset="UTF-8">
+    <title>CTLS</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+
+<body class="{{theme}}">
+    <header class="header" id="header">  
+        <a href="/landing">Home</a>  
+        <a href="/tools">Search</a>
+        <a href="/users">Profile</a> 
+        <a href="/lenderportalpage">Manage</a>
+    </header>
+    <div class="searchToolForm">
+    <form id="searchForm">
+        <label for="search_term">Search: </label>
+        <input id="search_term" type="text">
+        <label for="condition">Condition: </label>
+            <select name="condition" id="condition">
+                <option value="any">Any</option>
+                <option value="Like New">Like New</option>
+                <option value="Very Good">Very Good</option>
+                <option value="Good">Good</option>
+                <option value="Ok">ok</option>
+                <option value="Minor Damage">Minor Damage</option>
+                <option value="Some Damage">Some Damage</option>
+                <option value="Very Damaged">Very Damaged</option>
+            </select>
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+
+    <div id="error" class="error" hidden></div>
+        <div class="toolsSearchedPage" id="toolsSearchedPage" hidden>
+
+        <h2 id="toolSearched"></h2>
+    <div class="toolsDiv" id="toolsDiv" ></div>
+                    
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="../public/js/client_side_validation.js"></script>
+</body>

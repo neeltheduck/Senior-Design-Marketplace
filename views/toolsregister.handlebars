@@ -1,0 +1,83 @@
+
+<head>
+    <meta charset="UTF-8">
+    <title>tools</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+
+<body>
+    <header class="header" id="header">  
+        <a href="/landing">Home</a>  
+        <a href="/tools">Search</a>
+        <a href="/users">Profile</a> 
+        <a href="/lenderportalpage">Manage</a>
+    </header>
+    <h1>tools</h1>
+    <div id="error" class="error" hidden></div>
+    {{#if hasErrors}}
+        <div class="error">{{error}}</div>
+    {{/if}}
+    {{!-- const toolData={
+                toolName: req.body.toolName,
+                description: req.body.description,
+                condition: req.body.condition,
+                userID: req.body.userID,
+                availability: req.body.availability,
+                location: req.body.location,
+                images: req.body.images
+            }; --}}
+    <form action="/toolsregister" id="tool-info" name="tool-info" class = "dark" method="POST" enctype="multipart/form-data">
+            
+            <label for="toolName">Tool Name</label>
+            <input type="text" id="toolName" name="toolName"><br>
+    
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description"><br>
+    
+            <label for="condition">Condition</label>
+            <select name="condition" id="condition">
+                <option value="Like New">Like New</option>
+                <option value="Very Good">Very Good</option>
+                <option value="Good">Good</option>
+                <option value="Ok">ok</option>
+                <option value="Minor Damage">Minor Damage</option>
+                <option value="Some Damage">Some Damage</option>
+                <option value="Very Damaged">Very Damaged</option>
+            </select><br>
+    
+    
+            <label for="image">Image of Product</label>
+            <input type="file" accept="image/*" id="image" name="image"><br>
+
+            <fieldset>
+                <legend>Choose a start and end date for the availability of your tool:</legend>
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" min="2024-01-01" max="2027-01-01">
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" min="2024-01-01" max="2027-01-01">
+            </fieldset>
+
+            <label for="autocomplete">Location</label>
+            <input id="autocomplete" type="text" name="autocomplete" placeholder="Enter a location" /><br>
+            <button id="submitButton" name="submitButton">Submit</button>
+        </form><br>
+        <div id="toolregistererror" class="formerror" hidden></div>
+        <script src="../public/js/client_side_validation.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4Xt0XFTeyZZXA_2tCA7i1_nH4cL_v82w&libraries=places"></script>
+        {{!-- <script src="../public/js/autocomplete.js"></script> --}}
+        <script>
+  function initAutocomplete() {
+    // Get the input element
+    var input = document.getElementById('autocomplete');
+    
+    // Initialize the autocomplete object
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    // Optionally, you can add an event listener to handle the place selection
+    
+  }
+
+  // Initialize the autocomplete when the page loads
+  google.maps.event.addDomListener(window, 'load', initAutocomplete);
+</script>
+
+</body>

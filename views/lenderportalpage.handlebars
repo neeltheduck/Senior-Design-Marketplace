@@ -1,0 +1,31 @@
+<head>
+    <meta charset="UTF-8">
+    <title>lender portal</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+
+<body class="{{themePreference}}">
+    <header class="header" id="header">  
+        <a href="/landing">Home</a>  
+        <a href="/tools">Search</a>
+        <a href="/users">Profile</a> 
+        <a href="/lenderportalpage">Manage</a>
+    </header>
+        <h2>lender portal page, make changes to your tools here</h2>
+
+
+<h4><a href="/toolsregister">add new tool</a></h4>
+{{#if tools.length}}
+    <ol>
+        {{#each tools}}
+            <li>
+                
+                {{this.toolName}} <a href="/toolsedit/{{this._id}}">edit</a> <a href="/toolsdelete/{{this._id}}">delete</a>
+                
+            </li>
+        {{/each}}
+    </ol>
+{{else}}
+    <p>No tools found.</p>
+{{/if}}
+</body>

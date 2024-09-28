@@ -1,0 +1,23 @@
+{{!--
+
+If the user is logged in and they are an admin user, and 'GET /admin' endpoint is called, you will render this view
+based on the specs.
+
+
+
+--}}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+<body class="{{themePreference}}">
+    <div id="adminView">
+    <p id="welcome">Welcome {{firstName}} {{lastName}}, the time is now: {{currentTime}}. You get super secret admin access since you are an admin. Remember, with great power comes great responsibility!!</p>
+    <p id="quote">Favorite Quote: {{favoriteQuote}}</p>
+    <a id="userLink" href="/user">User Page</a>
+    <a id="logoutLink" href="/logout">Logout</a>
+    </div>
+    <script src="../public/js/client_side_validation.js"></script>
+</body>

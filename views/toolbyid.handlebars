@@ -1,0 +1,112 @@
+            {{!-- res.render('toolbyid', {themePreference: 'dark', tool: tool}); --}}
+            
+<head>
+    <meta charset="UTF-8">
+    <title>tool</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+
+<body>
+            <h1>{{tool.toolName}}</h1>
+            <p><img src="/public/uploads/{{tool.image}}" alt="Image of {{tool.toolName}}" style="width:100px; height:100px;"></p>
+            <p>Description: {{tool.description}}</p>
+            <p>Condition: {{tool.condition}}</p>
+            <p>Availability:</p>
+            <p>Start Date: {{start}}</p>
+            <p>End Date: {{end}}</p>
+            <table>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+                <tr>
+                    <td>{{tool.availability.[0]}}</td>
+                    <td>{{tool.availability.[1]}}</td>
+                    <td>{{tool.availability.[2]}}</td>
+                    <td>{{tool.availability.[3]}}</td>
+                    <td>{{tool.availability.[4]}}</td>
+                    <td>{{tool.availability.[5]}}</td>
+                    <td>{{tool.availability.[6]}}</td>
+                </tr>
+                <tr>
+                    <td>{{tool.availability.[7]}}</td>
+                    <td>{{tool.availability.[8]}}</td>
+                    <td>{{tool.availability.[9]}}</td>
+                    <td>{{tool.availability.[10]}}</td>
+                    <td>{{tool.availability.[11]}}</td>
+                    <td>{{tool.availability.[12]}}</td>
+                    <td>{{tool.availability.[13]}}</td>
+            </table>
+
+            {{!-- <p>Availability: {{tool.availability}}</p> --}}
+            <p>Location: {{tool.location}}</p>
+            {{!-- <p>Images: <img src="{{tool.images}}" alt="{{tool.toolName}} image"></p> --}}
+            {{#if hasErrors}}
+                <div class="error">{{error}}</div>
+            {{/if}}
+            <form id="tool_request" name="tool_request" method="POST">
+                <input type="hidden" id="form_type" name="form_type" value="tool_request">
+                <label for="req_username">Your Username:</label>
+                <input type="text" id="req_username" name="req_username">
+                <input type="hidden" id="lender_id" name="lender_id" value={{tool.userID}}>
+                <input type="hidden" id="tool_id" name="tool_id" value={{tool._id}}>
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" min={{start}} max={{end}}>
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" min={{start}} max={{end}}>
+                <br>
+                <input type="submit" value="Send Request">
+            </form>
+            {{#if reqSuccess}}
+                <p>Request successfully sent!</p>
+            {{/if}}
+            <form id="add_wishlist" name="add_wishlist" method="POST">
+                <input type="hidden" id="form_type" name="form_type" value="add_wishlist">
+                <input type="hidden" id="tool_id" name="tool_id" value={{tool._id}}>
+                <label for="user">Username:</label>
+                <input type="text" id="user" name="user">
+                <input type="submit" value="Add to Wishlist">
+            </form>
+            {{#if wishlistSuccess}}
+                <p>Tool added to wishlist!</p>
+            {{/if}}
+            <a href="javascript:history.back()">Back</a>
+            <script src="../public/js/client_side_validation.js"></script>
+            <p>Date Added: {{tool.dateAdded}}</p>
+            {{#if hasErrors}}
+                <div class="error">{{error}}</div>
+            {{/if}}
+            <form id="tool_request" name="tool_request" method="POST">
+                <label for="req_username">Your Username:</label>
+                <input type="text" id="req_username" name="req_username">
+                <input type="hidden" id="lender_id" name="lender_id" value={{tool.userID}}>
+                <input type="hidden" id="tool_id" name="tool_id" value={{tool._id}}>
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" min={{start}} max={{end}}>
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" min={{start}} max={{end}}>
+                <br>
+                <input type="submit" value="Send Request">
+            </form>  
+            {{#if reqSuccess}}
+                <p>Request successfully sent!</p>
+            {{/if}}
+            <form id="add_wishlist" name="add_wishlist" method="POST">
+                <input type="hidden" id="form_type" name="form_type" value="add_wishlist">
+                <input type="hidden" id="tool_id" name="tool_id" value={{tool._id}}>
+                <label for="user">Username:</label>
+                <input type="text" id="user" name="user">
+                <input type="submit" value="Add to Wishlist">
+            </form>
+            {{#if wishlistSuccess}}
+                <p>Tool added to wishlist!</p>
+            {{/if}}
+            <p><a href="javascript:history.back()">Back</a></p>
+            <script src="../public/js/client_side_validation.js"></script>
+</body>
+

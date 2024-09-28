@@ -1,0 +1,124 @@
+{{!--
+
+If the user is logged in , and 'GET /user' endpoint is called, you will render this view based on the specs.
+
+--}}
+
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+<body class="{{themePreference}}">
+    <header class="header" id="header">  
+        <a href="/landing">Home</a>  
+        <a href="/tools">Search</a>
+        <a href="/users">Profile</a> 
+        <a href="/lenderportalpage">Manage</a>
+    </header>
+
+    <h1>User Profile</h1>
+
+    <div id="error" class="error" hidden></div>
+    {{#if hasErrors}}
+        <div class="error">Error: {{error}}</div>
+    {{/if}}
+    
+    
+    <div id="userView">
+    <p id="welcome">Welcome {{firstName}} {{lastName}}!</p>
+    <h2>User Information</h2>
+    <p>Username: {{username}}</p>
+    <p>Pronouns: {{pronouns}}</p>
+    <p>Bio: {{bio}}</p>
+    <p>Location: {{userLocation}}</p>
+
+    <a id="logoutLink" href="/logout">Logout</a>
+    </div>
+
+    <h2>Listed Tools</h2>
+    <ul class="scroll-container" id="scroll-container">
+    
+            {{#each listedTools}}
+            <a href="/tools/{{_id}}" class="toolLink">
+            <article class="toolArt">
+                <img class="toolImage" alt="{{toolName}} image" src="public/uploads/{{image}}"> <br> <h2>{{toolName}}</h2> <br> <h3>{{description}}</h3> <h4>condition: {{condition}}</h4> 
+            </article>
+            </a>
+            {{/each}}
+    </ul> 
+
+    {{!-- <h2>Borrowed Tools</h2>
+    <ul class="scroll-container" id="scroll-container">
+    
+            {{#each borrowedTools}}
+            <a href="/tools/{{_id}}" class="toolLink">
+            <article class="toolArt">
+                <img class="toolImage" alt="{{toolName}} image" src="public/uploads/{{image}}"> <br> <h2>{{toolName}}</h2> <br> <h3>{{description}}</h3> <h4>condition: {{condition}}</h4> 
+            </article>
+            </a>
+            {{/each}}
+    </ul>    --}}
+
+    <h2>Previously Reserved Tools</h2>
+    <ul class="scroll-container" id="scroll-container">
+    
+            {{#each reservationHistory}}
+            <a href="/tools/{{_id}}" class="toolLink">
+            <article class="toolArt">
+                <img class="toolImage" alt="{{toolName}} image" src="public/uploads/{{image}}"> <br> <h2>{{toolName}}</h2> <br> <h3>{{description}}</h3> <h4>condition: {{condition}}</h4> 
+            </article>
+            </a>
+            {{/each}}
+    </ul> 
+
+    <h2>TradeStatuses</h2>
+    <ul class="scroll-container" id="scroll-container">
+        {{#each tradeStatuses}}
+        <article class="toolArt">
+            <img src="/public/uploads/{{tool.image}}" alt="Image of {{tool.toolName}}" style="width:100px; height:100px;">
+            <p>Tool Name: {{tool.toolName}}</p>
+            <p>Description: {{tool.description}}</p>
+            <p>Condition: {{tool.condition}}</p>
+            <p>Location: {{tool.location}}</p>
+            <p>Requester: {{requester}}</p>
+            <p>Start Date: {{start}}</p>
+            <p>End Date: {{end}}</p>
+            <p>Status: {{status}}</p>
+            <form id="approval_form" name="approval_form" method="POST">
+                <input type="hidden" id="lender_id" name="lender_id" value={{tool.userID}}>
+                <input type="hidden" id="req_username" name="req_username" value={{requester}}>
+                <input type="hidden" id="tool_id" name="tool_id" value={{tool._id}}>
+                <input type="hidden" id="start_date" name="start_date" value="{{start}}">
+                <input type="hidden" id="end_date" name="end_date" value="{{end}}">
+                <label for="approval">Approve or Decline:</label>
+                <select id="approval" name="approval">
+                    <option value="approved">Approved</option>
+                    <option value="declined">Decline</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+        </article>
+        {{/each}}
+    </ul>
+
+        <h2>Reviews:</h2>
+    <ul class="reviewList">
+        {{#each reviews}}
+        <article class="reviewElem">
+            <div class="reviewer">            
+                <p>From: {{userID}}</p>
+            <p>Rating: {{rating}}/5</p>
+            <p>Posted: {{dateAdded}}</p>
+            </div>
+            <p>Review:</p>
+            <p>{{comment}}</p>
+        </article>
+        {{/each}}
+    </ul>
+
+
+
+            <script src="../public/js/client_side_validation.js"></script>
+            
+</body>

@@ -1,0 +1,57 @@
+{{!--
+
+registration handelbars
+
+--}}
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+
+<body>
+    <h1>Register</h1>
+    <div id="error" class="error" hidden></div>
+    {{#if hasErrors}}
+        <div class="error">Error: {{error}}</div>
+    {{/if}}
+    <form action="/register" id="signup-form" name="signup-form" method="POST">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName">
+
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName">
+        
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username"><br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"><br>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword"><br>
+
+        <label for="pronouns">Pronouns</label>
+        <select name="pronouns" id="pronouns">
+            <option value="he/him">He/Him</option>
+            <option value="she/her">She/Her</option>
+            <option value="they/them">They/Them</option>
+        </select><br>
+
+        <label for="bio">Bio</label>
+        <textarea id="bio" name="bio" rows="6" cols="65"></textarea><br><br>
+
+        <label for="userLocation">User Location</label>
+        <input type="text" id="userLocation" name="userLocation"><br>
+
+        <label for="themePreference">Theme Preference</label>
+        <select name="themePreference" id="themePreference">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select><br>
+
+        <button id="submitButton" name="submitButton">Submit</button>
+    </form>
+    <div id="userregistererror" class="formerror" hidden></div>
+            <script src="../public/js/client_side_validation.js"></script>
+</body>

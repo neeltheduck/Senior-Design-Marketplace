@@ -1,0 +1,48 @@
+
+<head>
+    <meta charset="UTF-8">
+    <title>ratings</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+
+<body class="{{theme}}">
+    <header class="header" id="header">  
+        <a href="/landing">Home</a>  
+        <a href="/tools">Search</a>
+        <a href="/users">Profile</a> 
+        <a href="/lenderportalpage">Manage</a>
+    </header>
+    <h1>ratings</h1>
+    <div id="error" class="error" hidden></div>
+    {{#if hasErrors}}
+        <div class="error">Error: {{error}}</div>
+    {{/if}}
+
+    {{!-- const ratingData={ratingID: req.body.ratingID,
+                userID: req.body.userID,
+                toolID: req.body.toolID,
+                rating: req.body.rating,
+                comment: req.body.comment
+            }; --}}
+    <form action="/ratings/{{id}}" id="rating-info" name="rating-info" method="POST">
+    
+
+    <label for="rating">Rating</label>
+    <select id="rating" name="rating">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select><br>
+
+
+        <label for="review">Review</label>
+        <input type="text" id="review" name="review"><br>
+
+        <button id="submitButton" name="submitButton">Submit</button>
+    </form>
+    <div id="ratingregistererror" class="formerror" hidden></div>
+    <script src="../public/js/client_side_validation.js"></script>
+</body>
