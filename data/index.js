@@ -1,11 +1,13 @@
+import admin from "./admin.js";
+import profs from "./profs.js";
+import projects from "./projects.js";
 import users from "./users.js";
-import tools from "./tools.js";
-import ratings from "./ratings.js";
 
 const index = {
     users: users,
-    tools: tools,
-    ratings: ratings
+    admin: admin,
+    profs: profs,
+    projects: projects
 };
 
 export default index;
