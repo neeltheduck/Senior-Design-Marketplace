@@ -1,13 +1,13 @@
 {
-  "name": "cs-546-final-project",
+  "name": "senior-design-marketplace",
   "version": "1.0.0",
-  "description": "Our final project module",
+  "description": "project module",
   "main": "app.js",
   "type": "module",
   "scripts": {
     "start": "node app.js"
   },
-  "author": "Adib Osmany, Neel Meyyur, Tara Giblin, Kashish Patel",
+  "author": "Neel Meyyur, Adib Osmany, Aleksey Vinogradov, Elijah Joseph, Riley Stewart, Andrew Baker",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.5",
