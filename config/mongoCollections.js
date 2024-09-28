@@ -15,6 +15,7 @@ const getCollectionFn = (collection) => {
 
 // list of collections
 export const users = getCollectionFn('users');
-export const tools = getCollectionFn('tools');
-export const ratings = getCollectionFn('ratings');
+export const tools = getCollectionFn('admin');
+export const profs = getCollectionFn('profs');
+export const projects = getCollectionFn('projects');
 
